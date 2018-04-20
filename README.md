@@ -1,6 +1,6 @@
-# Experian API Java Library
+# Experian BusinessInformation API - Java Library
 
-The Experian Java library provides convenient access to the RESTful Experian APIs from Applications written in Java.
+The Experian Java library provides convenient access to the RESTful Experian BIS APIs from Applications written in Java.
 This package is for use with Java Application (Core Java/ J2EE or any similar Java Enabled Platform like Android) that uses Experian client_id, client_secret, username, password and subcode (if applicable).
 
 ## Documentation
@@ -24,7 +24,7 @@ For Detailed documentation of Experian APIs, visit [Experian Developers Portal](
 	BISAuthenticationService authService = new BISAuthenticationService(proxy);
 	BISServiceCredential serviceCredential = authService.getStageServiceCredential("username", "password", "clientId", "clientSecret");
 		
-
+### BIS Business Services
 
 ##### Bankruptcies
 	{		
@@ -236,6 +236,35 @@ For Detailed documentation of Experian APIs, visit [Experian Developers Portal](
 		request.setCommercialScore(true);
 		request.setFsrScore(true);
 	}
+
+### BIS Social Media Insights Services
+
+#### SMI Attributes
+```java
+public SocialMediaAttributesResponse getSMIAttributesSampleResponse(){
+	SocialMediaAttributesService service = new SocialMediaAttributesService(serviceCredential, proxy);
+	SocialMediaAttributesRequest request = new SocialMediaAttributesRequest();
+	request.setName("Apple");
+	request.setStreet("1 Infinite");
+	request.setCity("Cupertino");
+	request.setState("CA");
+	request.setSubcode("0563736");
+	SocialMediaAttributesResponse response = null;
+	try {
+		@SuppressWarnings("unused")
+		response = (SocialMediaAttributesResponse) service.execute(request);
+	}
+	catch(BISValidationException vex) {
+		//Custom validation for invalid data
+		System.out.println((new ObjectMapper()).writeValueAsString(vex.getServiceError()));
+	}
+	catch(BISServiceException ex) {
+		//Custom validation for service error
+		System.out.println((new ObjectMapper()).writeValueAsString(ex.getServiceError()));
+	}
+	return response;
+}
+```
 
 ### An example `response` object
 
