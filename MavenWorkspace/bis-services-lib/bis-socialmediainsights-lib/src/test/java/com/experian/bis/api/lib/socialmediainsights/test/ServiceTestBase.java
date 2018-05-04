@@ -30,7 +30,7 @@ public class ServiceTestBase {
 			System.out.println("Invoking One Time Authentication Service to get Auth Token...");
 			try {
 				BISAuthenticationService authService = new BISAuthenticationService(getProxy());
-				SERVICE_CREDENTIAL = authService.getStageServiceCredential(rBundle.getString("username"),
+				SERVICE_CREDENTIAL = authService.getSandboxServiceCredential(rBundle.getString("username"),
 						rBundle.getString("password"), rBundle.getString("client_id"),
 						rBundle.getString("client_secret"));
 			} catch (Exception ex) {

@@ -1,7 +1,12 @@
 package com.experian.bis.api.lib.common;
 
 public enum ServiceEnvironment {
-	PRODUCTION("prod"), STAGE("stage");
+	TEST("test"), 
+	STAGE("stage"), 
+	DEVELOPMENT("dev"), 
+	LOCAL("local"),
+	PRODUCTION("prod"), 
+	SANDBOX("sandbox");
 
 	private String id;
 

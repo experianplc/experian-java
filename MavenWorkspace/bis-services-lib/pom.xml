@@ -3,12 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.experian.bis.api.lib</groupId>
 	<artifactId>bis-services-lib</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>BIS Services</name>
 	<packaging>pom</packaging>
 	<description>Combined Library For All Experian BIS Services</description>
 	<modules>
 		<module>bis-businessservices-lib</module>
 		<module>bis-services-base</module>
+		<module>bis-socialmediainsights-lib</module>
 	</modules>
 </project>

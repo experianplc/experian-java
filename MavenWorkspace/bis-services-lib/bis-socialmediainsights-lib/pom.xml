@@ -4,10 +4,10 @@
 	<parent>
 		<groupId>com.experian.bis.api.lib</groupId>
 		<artifactId>bis-services-lib</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 	</parent>
 	<artifactId>bis-socialmediainsights-lib</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<name>BIS SocialMediaInsights Library</name>
 	<description>Java Client Library for SocialMediaInsights API of Experian BIS</description>
 
@@ -24,22 +24,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>maven2</id>
-			<url>http://repo1.maven.org/maven2</url>
-		</repository>
-
-		<repository>
-			<id>ExperianPublic</id>
-			<url>https://artifactory.experian.local/artifactory/public-repositories/</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
-
 
 	<build>
 		<plugins>

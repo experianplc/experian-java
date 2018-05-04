@@ -11,13 +11,14 @@ import java.util.ResourceBundle;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.experian.bis.api.lib.common.BISServiceCredential;
 import com.experian.bis.api.lib.common.BISServiceException;
 import com.experian.bis.api.lib.common.ServiceEnvironment;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class BISAuthenticationService {
+public final class BISAuthenticationService {
 	private Proxy proxy = null;
 	
 	public BISAuthenticationService() {
@@ -36,8 +37,20 @@ public class BISAuthenticationService {
 		this.proxy = proxy;
 	}
 
-	public BISServiceCredential getStageServiceCredential(String username, String password, String clientId, String clientSecret) throws BISServiceException {
+	protected BISServiceCredential getTestServiceCredential(String username, String password, String clientId, String clientSecret) throws BISServiceException {
+		return getServiceCredential(username, password, clientId, clientSecret, ServiceEnvironment.TEST);
+	}
+	
+	protected BISServiceCredential getDevelopmentServiceCredential(String username, String password, String clientId, String clientSecret) throws BISServiceException {
+		return getServiceCredential(username, password, clientId, clientSecret, ServiceEnvironment.DEVELOPMENT);
+	}
+	
+	protected BISServiceCredential getStageServiceCredential(String username, String password, String clientId, String clientSecret) throws BISServiceException {
 		return getServiceCredential(username, password, clientId, clientSecret, ServiceEnvironment.STAGE);
+	}
+	
+	public BISServiceCredential getSandboxServiceCredential(String username, String password, String clientId, String clientSecret) throws BISServiceException {
+		return getServiceCredential(username, password, clientId, clientSecret, ServiceEnvironment.SANDBOX);
 	}
 	
 	public BISServiceCredential getProductionServiceCredential(String username, String password, String clientId, String clientSecret) throws BISServiceException {
@@ -46,6 +59,10 @@ public class BISAuthenticationService {
 	
 	private BISServiceCredential getServiceCredential(String username, String password, String clientId, String clientSecret, ServiceEnvironment env) throws BISServiceException {
 		BISServiceCredential credential = new BISServiceCredential();
+		
+		if(StringUtils.isBlank(username) || StringUtils.isBlank(password) || StringUtils.isBlank(clientId) || StringUtils.isBlank(clientSecret))
+			throw new BISServiceException("One or more Authentication credentials (username, password, client id, client secrect) are not supplied.");
+		
 		credential.setEnvironment(env);
 		String authToken = "";
 		String tokenServiceUrl = ResourceBundle.getBundle("config").getString("url.token."+env.id());
@@ -75,7 +92,7 @@ public class BISAuthenticationService {
 			authToken = (String) PropertyUtils.getProperty(authRespObj, "access_token");
 			
 		} catch (Exception ex) {
-			throw new BISServiceException("BIS Service Authentication failed", ex);
+			throw new BISServiceException("BIS Service Authentication failed.", ex);
 		}
 	
 		credential.setAuthToken(authToken);

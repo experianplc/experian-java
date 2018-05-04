@@ -11,19 +11,21 @@ import junit.framework.Assert;
 
 public class FraudShieldsServiceTest extends ServiceTestBase {
 
+	
 	@Test
 	public void testExecute() {
 		try {
-			FraudShieldsService service = new FraudShieldsService(getServiceCredential());
+			FraudShieldsService service = new FraudShieldsService(getServiceCredential(), getProxy());
 			FraudShieldsServiceRequest request = new FraudShieldsServiceRequest();
-
-			request.setBin("404197602");
-			request.setSubcode("0563736");
-
-			FraudShieldsServiceResponse response = (FraudShieldsServiceResponse) service.execute(request);
-			Assert.assertEquals(response.getResults() != null && response.getResults().getBusinessHeader() != null
+		
+		request.setBin("404197602");
+		request.setSubcode("0563736");
+		
+		FraudShieldsServiceResponse response = (FraudShieldsServiceResponse) service.execute(request);
+			Assert.assertEquals(response.getResults()!=null && response.getResults().getBusinessHeader()!=null 
 					&& StringUtils.isNotBlank(response.getRequestId()), true);
-		} catch (Exception ex) {
+		}
+		catch(Exception ex) {
 			ex.printStackTrace();
 			Assert.fail("Test Case failed for Fraud Shields Service");
 		}

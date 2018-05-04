@@ -11,19 +11,21 @@ import junit.framework.Assert;
 
 public class RiskDashboardsServiceTest extends ServiceTestBase {
 
+	
 	@Test
 	public void testExecute() {
 		try {
-			RiskDashboardsService service = new RiskDashboardsService(getServiceCredential());
+			RiskDashboardsService service = new RiskDashboardsService(getServiceCredential(), getProxy());
 			RiskDashboardsServiceRequest request = new RiskDashboardsServiceRequest();
-
-			request.setBin("700000026");
-			request.setSubcode("0179116");
-
-			RiskDashboardsServiceResponse response = (RiskDashboardsServiceResponse) service.execute(request);
-			Assert.assertEquals(response.getResults() != null && response.getResults().getBusinessHeader() != null
+		
+		request.setBin("700000026");
+		request.setSubcode("0179116");
+		
+		RiskDashboardsServiceResponse response = (RiskDashboardsServiceResponse) service.execute(request);
+			Assert.assertEquals(response.getResults()!=null && response.getResults().getBusinessHeader()!=null 
 					&& StringUtils.isNotBlank(response.getRequestId()), true);
-		} catch (Exception ex) {
+		}
+		catch(Exception ex) {
 			ex.printStackTrace();
 			Assert.fail("Test Case failed for Risk Dashboards Service");
 		}

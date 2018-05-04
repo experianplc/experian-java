@@ -11,23 +11,25 @@ import junit.framework.Assert;
 
 public class CorporateLinkageServiceTest extends ServiceTestBase {
 
+	
 	@Test
 	public void testExecute() {
 		try {
-			CorporateLinkageService service = new CorporateLinkageService(getServiceCredential());
+			CorporateLinkageService service = new CorporateLinkageService(getServiceCredential(), getProxy());
 			CorporateLinkageServiceRequest request = new CorporateLinkageServiceRequest();
-
-			request.setCorporateLinkagePartial(true);
-			request.setCorporateLinkageFull(true);
-			request.setBin("404197602");
-			request.setSubcode("0563736");
-
-			CorporateLinkageServiceResponse response = (CorporateLinkageServiceResponse) service.execute(request);
-			Assert.assertEquals(response.getResults() != null && response.getResults().getBusinessHeader() != null
-					&& response.getResults().getCorporateLinkagePartial() != null
-					&& response.getResults().getCorporateLinkageFull() != null
+		
+		request.setCorporateLinkagePartial(true);
+		request.setCorporateLinkageFull(true);
+		request.setBin("404197602");
+		request.setSubcode("0563736");
+		
+		CorporateLinkageServiceResponse response = (CorporateLinkageServiceResponse) service.execute(request);
+			Assert.assertEquals(response.getResults()!=null && response.getResults().getBusinessHeader()!=null
+					&& response.getResults().getCorporateLinkagePartial()!=null 
+					&& response.getResults().getCorporateLinkageFull()!=null
 					&& StringUtils.isNotBlank(response.getRequestId()), true);
-		} catch (Exception ex) {
+		}
+		catch(Exception ex) {
 			ex.printStackTrace();
 			Assert.fail("Test Case failed for Corporate Linkage Service");
 		}

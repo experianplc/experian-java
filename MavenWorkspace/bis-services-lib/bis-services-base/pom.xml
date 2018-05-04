@@ -1,12 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.experian.bis.api.lib</groupId>
-    <artifactId>bis-services-lib</artifactId>
-    <version>1.0.1</version>
-  </parent>
-  <artifactId>bis-services-base</artifactId>
-  <version>1.0.0</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.experian.bis.api.lib</groupId>
+		<artifactId>bis-services-lib</artifactId>
+		<version>1.0.2</version>
+	</parent>
+	<artifactId>bis-services-base</artifactId>
+	<version>1.0.2</version>
 	<name>BIS Services Base</name>
 	<description>Base Project Containing Common Classes and Resources Shared by various BIS Services Libraries</description>
 	<dependencies>
@@ -38,19 +39,4 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-	<repositories>
-                <repository>
-                     <id>ExperianPublic</id>
-                         <url>https://artifactory.experian.local/artifactory/public-repositories/</url>
-                         <snapshots>
-                               <enabled>true</enabled>
-                               <updatePolicy>always</updatePolicy>
-                                                </snapshots>
-                                </repository> 
-     			<repository>
-   <id>maven2</id>
-   <url>http://repo1.maven.org/maven2</url>
-  </repository>
-     			                           
-      </repositories>
 </project>

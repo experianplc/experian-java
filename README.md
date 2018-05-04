@@ -17,232 +17,254 @@ For Detailed documentation of Experian APIs, visit [Experian Developers Portal](
  4. Git Client (e.g Git Bash)
 
 ### Authentication before Calling the API
+Authentication service must be invoked before making a call to Experian BIS APIs. The Authentication service provides access token, which is used internally by the API Service classes to access corresponding APIs.
+```java	
+BISAuthenticationService authService = new BISAuthenticationService(proxy);
+BISServiceCredential serviceCredential = authService.getStageServiceCredential("username", "password", "clientId", "clientSecret");
+```
 
-
-	System.setProperty("javax.net.useSystemProxies", "false");
-	Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("hostname", port));
-	BISAuthenticationService authService = new BISAuthenticationService(proxy);
-	BISServiceCredential serviceCredential = authService.getStageServiceCredential("username", "password", "clientId", "clientSecret");
-		
 ### BIS Business Services
 
 ##### Bankruptcies
-	{		
-		BankruptcyService service = new BankruptcyService(serviceCredential, proxy);
+```java
+{		
+		BankruptcyService service = new BankruptcyService(serviceCredential);
 		BankruptcyServiceRequest request = new BankruptcyServiceRequest();
-		
 		request.setBankruptcyDetail(true);
 		request.setBin("807205801");
 		request.setSubcode("0517614");
-	}	
-
+}	
+```
 ##### Business Facts
-	{
-		BusinessFactsService service = new BusinessFactsService(serviceCredential, proxy);
-		BusinessFactsServiceRequest request = new BusinessFactsServiceRequest();
+```java
+{
+	BusinessFactsService service = new BusinessFactsService(serviceCredential);
+	BusinessFactsServiceRequest request = new BusinessFactsServiceRequest();
 		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 
 ##### Collections
-	{	
-		CollectionsService service = new CollectionsService(serviceCredential, proxy);
-		CollectionsServiceRequest request = new CollectionsServiceRequest();
+```java
+{	
+	CollectionsService service = new CollectionsService(serviceCredential);
+	CollectionsServiceRequest request = new CollectionsServiceRequest();
 		
-		request.setCollectionsSummary(true);
-		request.setCollectionsDetail(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
+	request.setCollectionsSummary(true);
+	request.setCollectionsDetail(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 
 ##### Corporate Linkage
-	{
-		CorporateLinkageService service = new CorporateLinkageService(serviceCredential, proxy);
-		CorporateLinkageServiceRequest request = new CorporateLinkageServiceRequest();
-		
-		request.setCorporateLinkagePartial(true);
-		request.setCorporateLinkageFull(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
+```java
+{
+	CorporateLinkageService service = new CorporateLinkageService(serviceCredential);
+	CorporateLinkageServiceRequest request = new CorporateLinkageServiceRequest();
+	
+	request.setCorporateLinkagePartial(true);
+	request.setCorporateLinkageFull(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 
 ##### Corporate Registrations
-	{
-		CorporateRegistrationsService service = new CorporateRegistrationsService(serviceCredential, proxy);
-		CorporateRegistrationsServiceRequest request = new CorporateRegistrationsServiceRequest();
-		
-		request.setStatusDescriptionDetail(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}	
-
+```java
+{
+	CorporateRegistrationsService service = new CorporateRegistrationsService(serviceCredential);
+	CorporateRegistrationsServiceRequest request = new CorporateRegistrationsServiceRequest();
+	
+	request.setStatusDescriptionDetail(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}	
+```
 ##### Credit Status
-	{
-		CreditStatusService service = new CreditStatusService(serviceCredential, proxy);
-		CreditStatusServiceRequest request = new CreditStatusServiceRequest();
-		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+```java
+{
+	CreditStatusService service = new CreditStatusService(serviceCredential);
+	CreditStatusServiceRequest request = new CreditStatusServiceRequest();
+	
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Fraud Shields
-	{
-		FraudShieldsService service = new FraudShieldsService(serviceCredential, proxy);
-		FraudShieldsServiceRequest request = new FraudShieldsServiceRequest();
-		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+```java
+{
+	FraudShieldsService service = new FraudShieldsService(serviceCredential);
+	FraudShieldsServiceRequest request = new FraudShieldsServiceRequest();
+	
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 #### Headers
-	{
-		HeadersService service = new HeadersService(serviceCredential, proxy);
-		HeadersServiceRequest request = new HeadersServiceRequest();
-		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+```java
+{
+	HeadersService service = new HeadersService(serviceCredential);
+	HeadersServiceRequest request = new HeadersServiceRequest();
+	
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Judgements
-	{
-		JudgmentsService service = new JudgmentsService(serviceCredential, proxy);
-		JudgmentsServiceRequest request = new JudgmentsServiceRequest();
+```java
+{
+	JudgmentsService service = new JudgmentsService(serviceCredential);
+	JudgmentsServiceRequest request = new JudgmentsServiceRequest();
 
-		request.setJudgmentSummary(true);
-		request.setJudgmentDetail(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
+	request.setJudgmentSummary(true);
+	request.setJudgmentDetail(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 
 ##### Legal Collection Summaries
-	{
-		LegalCollectionsSummariesService service = new LegalCollectionsSummariesService(serviceCredential, proxy);
-		LegalCollectionsSummariesServiceRequest request = new LegalCollectionsSummariesServiceRequest();
+```java
+{
+	LegalCollectionsSummariesService service = new LegalCollectionsSummariesService(serviceCredential);
+	LegalCollectionsSummariesServiceRequest request = new LegalCollectionsSummariesServiceRequest();
 
-		request.setLegalFilingsCollectionsSummary(true);
-		request.setLegalFilingsSummary(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+	request.setLegalFilingsCollectionsSummary(true);
+	request.setLegalFilingsSummary(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Liens
-	{
-		LiensService service = new LiensService(serviceCredential, proxy);
-		LiensServiceRequest request = new LiensServiceRequest();
+```java
+{
+	LiensService service = new LiensService(serviceCredential);
+	LiensServiceRequest request = new LiensServiceRequest();
 
-		request.setLienSummary(true);
-		request.setLienDetail(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+	request.setLienSummary(true);
+	request.setLienDetail(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Risk Dashboards
-	{
-		RiskDashboardsService service = new RiskDashboardsService(serviceCredential, proxy);
-		RiskDashboardsServiceRequest request = new RiskDashboardsServiceRequest();
-		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+```java
+{
+	RiskDashboardsService service = new RiskDashboardsService(serviceCredential);
+	RiskDashboardsServiceRequest request = new RiskDashboardsServiceRequest();
+	
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Scores
-	{
-		ScoresService service = new ScoresService(serviceCredential, proxy);
-		ScoresServiceRequest request = new ScoresServiceRequest();
-		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-		request.setModelCode("000224");
-		request.setCommercialScore(true);
-		request.setFsrScore(true);
-	}	
-
+```java
+{
+	ScoresService service = new ScoresService(serviceCredential);
+	ScoresServiceRequest request = new ScoresServiceRequest();
+	
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+	request.setModelCode("000224");
+	request.setCommercialScore(true);
+	request.setFsrScore(true);
+}	
+```
 ##### Trades
-	{
-		TradesService service = new TradesService(serviceCredential, proxy);
-		TradesServiceRequest request = new TradesServiceRequest();
+```java
+{
+	TradesService service = new TradesService(serviceCredential);
+	TradesServiceRequest request = new TradesServiceRequest();
 
-		request.setTradePaymentSummary(true);
-		request.setTradePaymentTotals(false);
-		request.setTradePaymentExperiences(false);
-		request.setTradePaymentTrends(false);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+	request.setTradePaymentSummary(true);
+	request.setTradePaymentTotals(false);
+	request.setTradePaymentExperiences(false);
+	request.setTradePaymentTrends(false);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### UCC Filings
-	{
-		UCCFilingsService service = new UCCFilingsService(serviceCredential, proxy);
-		UCCFilingsServiceRequest request = new UCCFilingsServiceRequest();
+```java
+{
+	UCCFilingsService service = new UCCFilingsService(serviceCredential);
+	UCCFilingsServiceRequest request = new UCCFilingsServiceRequest();
 
-		request.setUccFilingsSummary(true);
-		request.setUccFilingsDetail(true);
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+	request.setUccFilingsSummary(true);
+	request.setUccFilingsDetail(true);
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Reverse Addresses	
-	{
-		ReverseAddressesService service = new ReverseAddressesService(serviceCredential, proxy);
-		ReverseAddressesServiceRequest request = new ReverseAddressesServiceRequest();
-		
-		request.setSubcode("0517614");
-		request.setStreet("475 ANTON BLVD");
-		request.setCity("Costa Mesa");
-		request.setState("CA");
-		request.setZip("92626");
-	}
-
+```java
+{
+	ReverseAddressesService service = new ReverseAddressesService(serviceCredential);
+	ReverseAddressesServiceRequest request = new ReverseAddressesServiceRequest();
+	
+	request.setSubcode("0517614");
+	request.setStreet("475 ANTON BLVD");
+	request.setCity("Costa Mesa");
+	request.setState("CA");
+	request.setZip("92626");
+}
+```
 ##### Reverse Phones
-	{
-		ReversePhonesService service = new ReversePhonesService(serviceCredential, proxy);
-		ReversePhonesServiceRequest request = new ReversePhonesServiceRequest();
-		
-		request.setSubcode("0517614");
-		request.setPhone("8008888888");
-	}
-
+```java
+{
+	ReversePhonesService service = new ReversePhonesService(serviceCredential);
+	ReversePhonesServiceRequest request = new ReversePhonesServiceRequest();
+	
+	request.setSubcode("0517614");
+	request.setPhone("8008888888");
+}
+```
 ##### Reverse TaxIDs
-	{
-		ReverseTaxIDsService service = new ReverseTaxIDsService(serviceCredential, proxy);
-		ReverseTaxIDsServiceRequest request = new ReverseTaxIDsServiceRequest();
-		
-		request.setSubcode("0517614");
-		request.setTaxId("222152871");
-	}
-
+```java
+{
+	ReverseTaxIDsService service = new ReverseTaxIDsService(serviceCredential);
+	ReverseTaxIDsServiceRequest request = new ReverseTaxIDsServiceRequest();
+	
+	request.setSubcode("0517614");
+	request.setTaxId("222152871");
+}
+```
 ##### Business Contacts	
-	{
-		BusinessContactsService service = new BusinessContactsService(serviceCredential, proxy);
-		BusinessContactsServiceRequest request = new BusinessContactsServiceRequest();
-		
-		request.setBin("807205801");
-		request.setSubcode("0517614");
-	}
-
+```java
+{
+	BusinessContactsService service = new BusinessContactsService(serviceCredential);
+	BusinessContactsServiceRequest request = new BusinessContactsServiceRequest();
+	
+	request.setBin("807205801");
+	request.setSubcode("0517614");
+}
+```
 ##### Scores/Search	
-	{
-		ScoresSearchService service = new ScoresSearchService(serviceCredential, proxy);
-		ScoresSearchServiceRequest request = new ScoresSearchServiceRequest();
-		
-		request.setName("EXPERIAN");
-		request.setCity("Costa Mesa");
-		request.setState("CA");
-		request.setSubcode("0517614");
-		request.setZip("92626");
-		request.setGeo(true);
-		request.setMatchReliabilityCode(83);
-		request.setCommercialScore(true);
-		request.setFsrScore(true);
-	}
-
+```java
+{
+	ScoresSearchService service = new ScoresSearchService(serviceCredential);
+	ScoresSearchServiceRequest request = new ScoresSearchServiceRequest();
+	
+	request.setName("EXPERIAN");
+	request.setCity("Costa Mesa");
+	request.setState("CA");
+	request.setSubcode("0517614");
+	request.setZip("92626");
+	request.setGeo(true);
+	request.setMatchReliabilityCode(83);
+	request.setCommercialScore(true);
+	request.setFsrScore(true);
+}
+```
 ### BIS Social Media Insights Services
 
 #### SMI Attributes
 ```java
 public SocialMediaAttributesResponse getSMIAttributesSampleResponse(){
-	SocialMediaAttributesService service = new SocialMediaAttributesService(serviceCredential, proxy);
+	SocialMediaAttributesService service = new SocialMediaAttributesService(serviceCredential);
 	SocialMediaAttributesRequest request = new SocialMediaAttributesRequest();
 	request.setName("Apple");
 	request.setStreet("1 Infinite");
@@ -265,6 +287,24 @@ public SocialMediaAttributesResponse getSMIAttributesSampleResponse(){
 	return response;
 }
 ```
+
+
+### HTTP Proxy Support
+Experian BIS Java Library has built in support for HTTP Proxy. If the Java Library is being used in a API Client which is expected to run on a system, where Proxy is required to access the Experian API URLs, you can easily configure it while using the Java Library. Use the following lines of code to set a proxy.
+```java
+System.setProperty("javax.net.useSystemProxies", "false");
+int port = 8080; //provide your proxy port here
+String proxyHost = "hostname"; //provide your proxy host address here
+Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHost, port));
+BISAuthenticationService authService = new BISAuthenticationService(proxy);
+BISServiceCredential serviceCredential = authService.getStageServiceCredential("username", "password", "clientId", "clientSecret");
+```
+and then create the Service Class as following:
+```java
+BusinessFactsService service = new BusinessFactsService(serviceCredential, proxy);
+```
+
+However this proxy configuration is absolutely optional. You should only pass the second parameter (proxy) to the API Service Classes when your code is running behind a proxy server.
 
 ### An example `response` object
 

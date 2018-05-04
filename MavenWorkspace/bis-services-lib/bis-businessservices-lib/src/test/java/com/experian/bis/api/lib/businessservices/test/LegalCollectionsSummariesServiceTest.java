@@ -11,23 +11,24 @@ import junit.framework.Assert;
 
 public class LegalCollectionsSummariesServiceTest extends ServiceTestBase {
 
+	
 	@Test
 	public void testExecute() {
 		try {
-			LegalCollectionsSummariesService service = new LegalCollectionsSummariesService(getServiceCredential());
+			LegalCollectionsSummariesService service = new LegalCollectionsSummariesService(getServiceCredential(), getProxy());
 			LegalCollectionsSummariesServiceRequest request = new LegalCollectionsSummariesServiceRequest();
 			request.setLegalFilingsCollectionsSummary(true);
 			request.setLegalFilingsSummary(true);
 			request.setBin("796744203");
 			request.setSubcode("563736");
-
-			LegalCollectionsSummariesServiceResponse response = (LegalCollectionsSummariesServiceResponse) service
-					.execute(request);
-			Assert.assertEquals(response.getResults() != null && response.getResults().getBusinessHeader() != null
-					&& response.getResults().getLegalFilingsCollectionsSummary() != null
-					&& response.getResults().getLegalFilingsSummary() != null
+		
+		LegalCollectionsSummariesServiceResponse response = (LegalCollectionsSummariesServiceResponse) service.execute(request);
+			Assert.assertEquals(response.getResults()!=null && response.getResults().getBusinessHeader()!=null 
+					&& response.getResults().getLegalFilingsCollectionsSummary()!=null 
+					&& response.getResults().getLegalFilingsSummary()!=null
 					&& StringUtils.isNotBlank(response.getRequestId()), true);
-		} catch (Exception ex) {
+		}
+		catch(Exception ex) {
 			ex.printStackTrace();
 			Assert.fail("Test Case failed for Legal Collections Summaries Service");
 		}
