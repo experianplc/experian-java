@@ -25,6 +25,22 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 
 ### BIS Business Services
 
+#### Search
+```java
+{
+	SearchService service = new SearchService(serviceCredential, proxy);
+	SearchServiceRequest request = new SearchServiceRequest();
+	
+	request.setName("EXPERIAN & CONSUMER DIRECT");
+	request.setCity("Costa Mesa");
+	request.setState("CA");
+	request.setSubcode("0517614");
+	request.setZip("92626");
+	request.setGeo(true);
+	SearchServiceResponse response = (SearchServiceResponse) service.execute(request);
+}
+```
+
 ##### Bankruptcies
 ```java
 {		
@@ -33,6 +49,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 		request.setBankruptcyDetail(true);
 		request.setBin("807205801");
 		request.setSubcode("0517614");
+		BankruptcyServiceResponse response = (BankruptcyServiceResponse) service.execute(request);
 }	
 ```
 ##### Business Facts
@@ -43,6 +60,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 		
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	BusinessFactsServiceResponse response = (BusinessFactsServiceResponse) service.execute(request);
 }
 ```
 
@@ -56,6 +74,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setCollectionsDetail(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	CollectionsServiceResponse response = (CollectionsServiceResponse) service.execute(request);
 }
 ```
 
@@ -69,6 +88,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setCorporateLinkageFull(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	CorporateLinkageServiceResponse response = (CorporateLinkageServiceResponse) service.execute(request);
 }
 ```
 
@@ -81,6 +101,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setStatusDescriptionDetail(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	CorporateRegistrationsServiceResponse response = (CorporateRegistrationsServiceResponse) service.execute(request);
 }	
 ```
 ##### Credit Status
@@ -91,6 +112,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	CreditStatusServiceResponse response = (CreditStatusServiceResponse) service.execute(request);
 }
 ```
 ##### Fraud Shields
@@ -101,6 +123,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	FraudShieldsServiceResponse response = (FraudShieldsServiceResponse) service.execute(request);
 }
 ```
 #### Headers
@@ -111,6 +134,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	HeadersServiceResponse response = (HeadersServiceResponse) service.execute(request);
 }
 ```
 ##### Judgements
@@ -123,6 +147,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setJudgmentDetail(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	JudgmentsServiceResponse response = (JudgmentsServiceResponse) service.execute(request);
 }
 ```
 
@@ -136,6 +161,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setLegalFilingsSummary(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	LegalCollectionsSummariesServiceResponse response = (LegalCollectionsSummariesServiceResponse) service.execute(request);
 }
 ```
 ##### Liens
@@ -148,6 +174,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setLienDetail(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	LiensServiceResponse response = (LiensServiceResponse) service.execute(request);
 }
 ```
 ##### Risk Dashboards
@@ -158,6 +185,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	RiskDashboardsServiceResponse response = (RiskDashboardsServiceResponse) service.execute(request);
 }
 ```
 ##### Scores
@@ -171,6 +199,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setModelCode("000224");
 	request.setCommercialScore(true);
 	request.setFsrScore(true);
+	ScoresServiceResponse response = (ScoresServiceResponse) service.execute(request);
 }	
 ```
 ##### Trades
@@ -185,6 +214,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setTradePaymentTrends(false);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	TradesServiceResponse response = (TradesServiceResponse) service.execute(request);
 }
 ```
 ##### UCC Filings
@@ -197,6 +227,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setUccFilingsDetail(true);
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	UCCFilingsServiceResponse response = (UCCFilingsServiceResponse) service.execute(request);
 }
 ```
 ##### Reverse Addresses	
@@ -210,6 +241,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setCity("Costa Mesa");
 	request.setState("CA");
 	request.setZip("92626");
+	ReverseAddressesServiceResponse response = (ReverseAddressesServiceResponse) service.execute(request);
 }
 ```
 ##### Reverse Phones
@@ -220,6 +252,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setSubcode("0517614");
 	request.setPhone("8008888888");
+	ReversePhonesServiceResponse response = (ReversePhonesServiceResponse) service.execute(request);
 }
 ```
 ##### Reverse TaxIDs
@@ -230,6 +263,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setSubcode("0517614");
 	request.setTaxId("222152871");
+	ReverseTaxIDsServiceResponse response = (ReverseTaxIDsServiceResponse) service.execute(request);
 }
 ```
 ##### Business Contacts	
@@ -240,6 +274,7 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	
 	request.setBin("807205801");
 	request.setSubcode("0517614");
+	BusinessContactsServiceResponse response = (BusinessContactsServiceResponse) service.execute(request);
 }
 ```
 ##### Scores/Search	
@@ -257,6 +292,29 @@ BISServiceCredential serviceCredential = authService.getStageServiceCredential("
 	request.setMatchReliabilityCode(83);
 	request.setCommercialScore(true);
 	request.setFsrScore(true);
+	ScoresSearchServiceResponse response = (ScoresSearchServiceResponse) service.execute(request);
+}
+```
+##### Business Premier Profiles	
+```java
+{
+	PremierProfilesService service = new PremierProfilesService(serviceCredential);
+	PremierProfilesServiceRequest request = new PremierProfilesServiceRequest();
+
+	request.setBin("700003839");
+	request.setSubcode("0563776");
+	PremierProfilesServiceResponse response = (PremierProfilesServiceResponse) service.execute(request);
+}
+```
+##### Business Aggregates	
+```java
+{
+	AggregatesService service = new AggregatesService(serviceCredential);
+	BusinessAggregatesServiceRequest request = new BusinessAggregatesServiceRequest();
+
+	request.setBin("700003839");
+	request.setSubcode("0563776");
+	AggregatesServiceResponse response = (AggregatesServiceResponse) service.execute(request);
 }
 ```
 ### BIS Social Media Insights Services
@@ -306,15 +364,27 @@ BusinessFactsService service = new BusinessFactsService(serviceCredential, proxy
 
 However this proxy configuration is absolutely optional. You should only pass the second parameter (proxy) to the API Service Classes when your code is running behind a proxy server.
 
-### An example `response` object
+### Exceptions
 
+There are two Custom Exceptions thrown by various Service Classes of the Java Library. These Custom Exceptions are:
+
+##### BISValidationException
+Thrown by various service methods when a validation error occurs. Some common reasons for validation errors are datatype mismatch, incorrect format, presence of disallowed characters, value boundary overflow/underflow of various Request Parameters supplied to the service methods. This Custom Exception class is a subclass of `BISServiceException` class.
+
+##### BISServiceException
+Thrown by service methods when anything but a validation error occurs. These scenarios may include but not limited to Experian API outage, wrong credentials supplied, an unsual Runtime exception etc. All runtime exceptions are wrapped by this Custom Exception. This Custom Exception class is the superclass of `BISValidationException` class.
+
+
+### An example `response` object
+```
 {
     "requestId": "XXXX-XXXX-XXXX-XXXX",
     "success": true,
     "results": [...]
 }
-
-#### `error` object
+```
+#### An example `error` object
+```
 {
     "success": false,
     "requestId": "XXXX-XXXX-XXXX-XXXX",
@@ -326,3 +396,4 @@ However this proxy configuration is absolutely optional. You should only pass th
         }
     ]
 }
+```

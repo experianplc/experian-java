@@ -1,8 +1,9 @@
 package com.experian.bis.api.lib.businessservices.service;
 
-import java.io.DataOutputStream;
+import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
@@ -212,7 +213,7 @@ public abstract class BusinessService {
 					conn.setRequestProperty(key, requestHeaders.get(key));
 				}
 			}
-			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+			OutputStream wr = new BufferedOutputStream(conn.getOutputStream());
 			wr.write(postData);
 			wr.close();
 			InputStream is = conn.getInputStream();
