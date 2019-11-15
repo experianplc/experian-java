@@ -20,7 +20,7 @@ For Detailed documentation of Experian APIs, visit [Experian Developers Portal](
 Authentication service must be invoked before making a call to Experian BIS APIs. The Authentication service provides access token, which is used internally by the API Service classes to access corresponding APIs.
 ```java	
 BISAuthenticationService authService = new BISAuthenticationService(proxy);
-BISServiceCredential serviceCredential = authService.getStageServiceCredential("username", "password", "clientId", "clientSecret");
+BISServiceCredential serviceCredential = authService.getSandboxServiceCredential("username", "password", "clientId", "clientSecret");
 ```
 
 ### BIS Business Services
@@ -355,7 +355,7 @@ int port = 8080; //provide your proxy port here
 String proxyHost = "hostname"; //provide your proxy host address here
 Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHost, port));
 BISAuthenticationService authService = new BISAuthenticationService(proxy);
-BISServiceCredential serviceCredential = authService.getStageServiceCredential("username", "password", "clientId", "clientSecret");
+BISServiceCredential serviceCredential = authService.getSandboxServiceCredential("username", "password", "clientId", "clientSecret");
 ```
 and then create the Service Class as following:
 ```java
@@ -397,3 +397,11 @@ Thrown by service methods when anything but a validation error occurs. These sce
     ]
 }
 ```
+---
+
+#### CHANGE LOG : 17th OCT, 2019
+
+1. Excluded Support for Local, Dev, Test and Stage environments
+2. Added Support for UAT environment
+3. Updated Prod Environment URLs
+4. Updated Credentials for Sandbox Environment used in Unit Test Cases and Test Clients

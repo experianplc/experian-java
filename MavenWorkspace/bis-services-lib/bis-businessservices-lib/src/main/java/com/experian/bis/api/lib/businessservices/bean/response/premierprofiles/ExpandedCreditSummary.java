@@ -41,7 +41,7 @@ public class ExpandedCreditSummary {
 	private long tradeCollectionBalance;
 	private long openCollectionCount;
 	private long openCollectionBalance;
-	private OFACMatchWarning ofacMatchWarning;
+	private OFACMatchWarningPPRExpandedCreditSummary ofacMatchWarning;
 	private boolean victimStatementIndicator;
 	private long commercialFraudRiskIndicatorCount;
 	private long unsummarizedTradelineCount;
@@ -279,10 +279,10 @@ public class ExpandedCreditSummary {
 	public void setOpenCollectionBalance(long openCollectionBalance) {
 		this.openCollectionBalance = openCollectionBalance;
 	}
-	public OFACMatchWarning getOfacMatchWarning() {
+	public OFACMatchWarningPPRExpandedCreditSummary getOfacMatchWarning() {
 		return ofacMatchWarning;
 	}
-	public void setOfacMatchWarning(OFACMatchWarning ofacMatchWarning) {
+	public void setOfacMatchWarning(OFACMatchWarningPPRExpandedCreditSummary ofacMatchWarning) {
 		this.ofacMatchWarning = ofacMatchWarning;
 	}
 	public boolean isVictimStatementIndicator() {
