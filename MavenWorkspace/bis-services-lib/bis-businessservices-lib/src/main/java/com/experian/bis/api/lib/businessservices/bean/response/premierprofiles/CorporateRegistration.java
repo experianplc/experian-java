@@ -14,7 +14,7 @@ public class CorporateRegistration {
 	private String profitFlag;
 	private String charterNumber;
 	private long existenceTermYears;
-	private long existenceTermDate;
+	private String existenceTermDate;
 	private String federalTaxID;
 	private String stateTaxId;
 	private String domesticForeignIndicator;
@@ -68,10 +68,10 @@ public class CorporateRegistration {
 	public void setExistenceTermYears(long existenceTermYears) {
 		this.existenceTermYears = existenceTermYears;
 	}
-	public long getExistenceTermDate() {
+	public String getExistenceTermDate() {
 		return existenceTermDate;
 	}
-	public void setExistenceTermDate(long existenceTermDate) {
+	public void setExistenceTermDate(String existenceTermDate) {
 		this.existenceTermDate = existenceTermDate;
 	}
 	public String getFederalTaxID() {
