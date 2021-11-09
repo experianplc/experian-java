@@ -1,6 +1,6 @@
 package com.experian.bis.api.lib.businessservices.bean.response.premierprofiles;
 
-public class BusCollectionsDetailResult {
+public class BusinessCollectionsDetailResult {
 	
 	private String accountStatus;
 	private String datePlacedForCollection;

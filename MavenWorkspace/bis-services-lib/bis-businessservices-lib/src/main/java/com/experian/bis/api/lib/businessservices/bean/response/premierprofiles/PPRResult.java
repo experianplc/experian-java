@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class PPRResult {
 	
 	private BusinessHeaderResult businessHeader;
-	private BusCollectionsDetailResult[] collectionsDetail;
+	private BusinessCollectionsDetailResult[] collectionsDetail;
 	private TradePaymentExperiencesResult[] tradePaymentExperiences;
 	private TradePaymentExperiencesResult[] additionalPaymentExperiences;
 	private PaymentTotalsResult paymentTotals;
@@ -55,10 +55,10 @@ public class PPRResult {
 	public void setBusinessHeader(BusinessHeaderResult businessHeader) {
 		this.businessHeader = businessHeader;
 	}
-	public BusCollectionsDetailResult[] getCollectionsDetail() {
+	public BusinessCollectionsDetailResult[] getCollectionsDetail() {
 		return collectionsDetail;
 	}
-	public void setCollectionsDetail(BusCollectionsDetailResult[] collectionsDetail) {
+	public void setCollectionsDetail(BusinessCollectionsDetailResult[] collectionsDetail) {
 		this.collectionsDetail = collectionsDetail;
 	}
 	public TradePaymentExperiencesResult[] getTradePaymentExperiences() {
