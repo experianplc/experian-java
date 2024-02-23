@@ -2,13 +2,13 @@ package com.experian.bis.api.lib.businessservices.bean.response.premierprofiles;
 
 public class ConsumerStatement {
 	
-	private String type;
+	private Type type;
 	private String dateReported;
 	private String text;
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 	public String getDateReported() {
